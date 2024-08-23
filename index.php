@@ -26,7 +26,9 @@
       <form action="" method="post"><br>
       <p> <?php 
             include("connexion.php");
+
             if(isset($_POST['identifiant']) AND isset($_POST['password'])){
+                
                 $req=$con->prepare("SELECT * FROM admin WHERE identifiant=? AND password=?");
                 $req->execute(array($_POST['identifiant'],$_POST['password']));
                 $resultat=$req->fetchAll();
